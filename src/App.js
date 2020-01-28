@@ -4,12 +4,19 @@ import Timer from './Components/Timer';
 import Task from './Components/Task';
 import List from './Components/List';
 
+const dados = [{
+    task: 'learn react js', status: 'concluido'},
+    {task: 'learn react native', status: 'concluido'},
+    {task: 'aprender ingles', status: 'concluido'},
+    {task: 'aprender javanes', status: 'concluido'
+  }]
+
 function App() {
   return (
     <div className="App">
-    <Timer />
+    <Timer time="00" />
     <Task />
-    <List />
+    <List dados={dados} />
     </div>
   );
 }

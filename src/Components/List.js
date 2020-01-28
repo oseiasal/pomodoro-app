@@ -1,6 +1,6 @@
 import React from 'react';
 
-function List() {
+function List(props) {
   return (
 <div>
   <div className="list-container">
@@ -14,14 +14,15 @@ function List() {
     </tr>
     </thead>
   <tbody>
-    <tr>
-      <td>Aprendendo React</td>
-      <td>concluido</td>
-  </tr>
-    <tr>
-      <td>Aprendendo Inglês</td>
-      <td>concluido</td>
-  </tr>
+{
+      props.dados.map(a => a).map((a) =>
+        <tr key={a.task}>
+          <td>{a.task}</td>
+          <td>{a.status}</td>
+        </tr>
+      )
+}
+
 </tbody>
 </table>
 </div>

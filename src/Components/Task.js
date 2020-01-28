@@ -1,19 +1,28 @@
 import React from 'react';
 
-function Task() {
-  return (
-    <div>
 
-    <div className="task-container">
-      <div className="task-box">
-        <input type="text"/>
-        <input type="button" value=""/>
-      </div>
-    </div>
+ class Task extends React.Component{
 
-    </div>
-  );
+
+
+  render () {
+    {var i = 0;}
+      return (
+
+        <div>
+          <div className="task-container">
+            <div className="task-box">
+              <input  type="text"/>
+              <input type="button" onClick={function() {
+                console.log(i++);
+              }} value="Enviar"/>
+            </div>
+          </div>
+        </div>
+      );
+
+  }
 }
 
 
-export default Task;
+export default Task
