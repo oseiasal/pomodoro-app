@@ -16,7 +16,7 @@ function List(props) {
   <tbody>
 {
       props.dados.map(a => a).map((a) =>
-        <tr key={a.task}>
+        <tr key={a.key}>
           <td>{a.task}</td>
           <td>{a.status}</td>
         </tr>
