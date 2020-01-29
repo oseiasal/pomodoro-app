@@ -12,9 +12,11 @@ import React from 'react';
         <div>
           <div className="task-container">
             <div className="task-box">
-              <input  type="text"/>
+              <input  id="text" type="text"/>
               <input type="button" onClick={function() {
-                console.log(i++);
+                var text = document.getElementById('text');
+
+                console.log(text.value);
               }} value="Enviar"/>
             </div>
           </div>
