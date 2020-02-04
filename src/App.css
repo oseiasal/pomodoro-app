@@ -5,59 +5,71 @@
 
 
 .timer-container {
-    background: hsl(0, 0%, 77%);
-    margin: 0 auto;
-    height: 300px;
-    display: flex;
-    justify-content: center;
+  background: hsl(0, 0%, 77%);
+  margin: 0 auto;
+  height: 300px;
+  display: flex;
+  justify-content: center;
 }
 
 .timer-numbers {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .timer-numbers span {
-    font-size: 6em;
+  font-size: 6em;
 }
 
 .task-container {
-    background: #aed4c4;
-    width: 100%;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
+  background: #aed4c4;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 .task-box {
-    padding: 20px;
-    width: 600px;
-    /* height: 50px; */
-    display: flex;
-    justify-content: center;
+  padding: 20px;
+  width: 600px;
+  /* height: 50px; */
+  display: flex;
+  justify-content: center;
 }
 
 
 input[type="text"] {
-    height: 50px;
-    width: 450px;
+  height: 50px;
+  width: 450px;
 }
 
 input[type="button"] {
-    height: 50px;
-    width: 50px;
+  height: 50px;
+  width: 50px;
 }
 
 .list-container {
-    display: flex;
-    justify-content: center;
-    /* align-items: center; */
-    background: #436f5c;
-    min-height: 300px;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  background: #436f5c;
+  min-height: 300px;
 }
 
 .box-container {
-    width: 50%;
-    display: flex;
-    justify-content: center;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  width: 500px;
+  /* background: red; */
+}
+
+h2 {
+  font-size: 3em;
+  margin: 10px 0 0 0;
+  text-transform: uppercase;
+  font-family: monospace;
 }
