@@ -9,33 +9,35 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     //atributo do objeto = método do objeto
-    this.callingMyName = this.callingMyName.bind(this);
+    this.getTextValue = this.getTextValue.bind(this);
     this.returnTextValue = this.returnTextValue.bind(this);
-    this.state = {dados: []};
+    this.state = {dados: [], minute : 0};
   }
 
-  // Atualiza os estado da view
-  callingMyName() {
+  // Pega o valor (string) da input e cria um novo item na lista
+  getTextValue() {
     let newTask = new Tasks()
     newTask.setTask(this.returnTextValue('text'))
     console.log(newTask);
     this.setState(prevState => ({
-      dados: [...prevState.dados, newTask]}))
+      dados: [...prevState.dados, newTask]}));
     }
 
     // Pegar valor da input
     returnTextValue (id){
-      var value = '';
-      var obj = document.getElementById(id);
+      let value = '';
+      let obj = document.getElementById(id);
       value = obj.value;
       return value;
     }
 
+
+
     render () {
       return (
         <div className="App">
-        <Timer time={1} />
-        <Task funcion={this.callingMyName}/>
+        <Timer time={this.state.minute} />
+        <Task funcion={this.getTextValue}/>
         <List dados={this.state.dados} />
         </div>
       );
