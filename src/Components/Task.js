@@ -5,8 +5,11 @@ class Task extends React.Component{
     super(props);
   }
 
-  render () {
+  oi = () => {
+    console.log('oi');
+  }
 
+  render () {
     return (
     <div>
       <div className="task-container">
@@ -17,7 +20,6 @@ class Task extends React.Component{
       </div>
     </div>
     );
-
   }
 }
 

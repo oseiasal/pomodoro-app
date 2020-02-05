@@ -32,15 +32,19 @@ class App extends React.Component {
     }
 
 
-
     render () {
       return (
         <div className="App">
         <Timer time={this.state.minute} />
         <Task funcion={this.getTextValue}/>
-        <List dados={this.state.dados} />
+        <List func={this.handleTimer.bind(this)} dados={this.state.dados} />
         </div>
       );
+    }
+
+
+    handleTimer = (a) => {
+      console.log(a);
     }
   }
 

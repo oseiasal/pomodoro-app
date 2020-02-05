@@ -1,21 +1,12 @@
 import React from 'react';
+import Item from './Item';
 
 class List extends React.Component {
   constructor(props) {
     super(props)
-    this.startTimer = this.startTimer.bind(this)
-    this.stopTimer = this.stopTimer.bind(this)
-    this.removeTask = this.removeTask.bind(this)
-  }
-
-  startTimer() {
-    console.log(this.props.dados);
-  }
-  stopTimer() {
-    console.log(this);
-  }
-  removeTask() {
-    console.log(this);
+    // this.startTimer = this.startTimer.bind(this)
+    // this.stopTimer = this.stopTimer.bind(this)
+    // this.removeTask = this.removeTask.bind(this)
   }
 
   render (){
@@ -35,21 +26,10 @@ class List extends React.Component {
             <tbody>
               {
                 this.props.dados.map(a => a).map((a) =>
-                <tr key={a.key}>
-                  <td>{a.task}</td>
-                  <td>
-                    <input type="button" onClick={this.startTimer} value="Play"/>
-                  </td>
-                  <td>
-                    <input type="button" onClick={this.stopTimer} value="Stop"/>
-                  </td>
-                  <td>
-                    <input type="button" onClick={this.removeTask} value="Remove"/>
-                  </td>
-                </tr>
+                <Item func={this.props.func} key={a.key} task={a.task}/>
+
                 )
               }
-
             </tbody>
           </table>
         </div>

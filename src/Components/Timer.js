@@ -4,17 +4,20 @@ class Timer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      minutes: 50,
       starts: 0,
       isOn:false,
     }
+  }
+  
+  checkTimer = () => {
+
   }
 
   render () {
     return (
       <div className="timer-container">
       <div className="timer-numbers">
-      <span>00:</span><span>{this.state.minutes}</span>
+      <span>00:</span><span>{this.state.isOn == false ? 0 : this.props.time}</span>
       </div>
       </div>
     )
@@ -25,17 +28,12 @@ class Timer extends React.Component {
       this.setState(state => {
         return {minutes: state.minutes - 1}
       })
-
-
     },1000)
   }
 
   componentWillUnmount() {
-    if (this.state > 59) {
-      clearInterval(this.timer)
-    }
+    clearInterval(this.timer)
   }
-
 }
 
 export default Timer;
