@@ -18,7 +18,6 @@ class App extends React.Component {
   getTextValue() {
     let newTask = new Tasks()
     newTask.setTask(this.returnTextValue('text'))
-    console.log(newTask);
     this.setState(prevState => ({
       dados: [...prevState.dados, newTask]}));
     }
@@ -31,6 +30,9 @@ class App extends React.Component {
       return value;
     }
 
+    // relogio parado > isOn false vira true e depois false (props mudam)
+    // relogio true no timer não executa função se isOn && started
+    // quando o timer zerar, o started é false, o que permite outro ciclo
     handleTimer = () => {
 
       const { isOn, started } = this.state
@@ -42,13 +44,18 @@ class App extends React.Component {
       setTimeout(function () {
         self.setState({isOn: false})
       }, 1000);
-
-
     }
 
-    // relogio parado > isOn false vira true e depois false (props mudam)
-    // relogio true no timer não executa função se isOn && started
-    // quando o timer zerar, o started é false, o que permite outro ciclo
+    // função para deletar objetos do array pelo key
+    removeTaskByKey = (a) => {
+      console.log(a);
+
+      let array = [...this.state.dados]
+      var index = array.findIndex(x => x.key == a)
+
+      array.splice(index, 1)
+      this.setState({dados: array})
+    }
 
     render () {
       const { isOn, minute, dados} = this.state
@@ -57,11 +64,10 @@ class App extends React.Component {
         <div className="App">
         <Timer isOn={isOn} minutes={minute} />
         <Task funcion={this.getTextValue}/>
-        <List func={this.handleTimer.bind(this)} dados={dados} />
+        <List removeTaskByKey={this.removeTaskByKey} func={this.handleTimer.bind(this)} dados={dados} />
         </div>
       );
     }
-
   }
 
   export default App;

@@ -26,7 +26,7 @@ class List extends React.Component {
             <tbody>
               {
                 this.props.dados.map(a => a).map((a) =>
-                <Item func={this.props.func} key={a.key} task={a.task}/>
+                <Item removeTaskByKey={this.props.removeTaskByKey} func={this.props.func} key={a.key} task={a.task}/>
 
                 )
               }
