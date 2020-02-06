@@ -11,7 +11,7 @@ class App extends React.Component {
     //atributo do objeto = método do objeto
     this.getTextValue = this.getTextValue.bind(this);
     this.returnTextValue = this.returnTextValue.bind(this);
-    this.state = {dados: [], minute : 0};
+    this.state = {dados: [], minute : 0, isOn: false, started: false};
   }
 
   // Pega o valor (string) da input e cria um novo item na lista
@@ -31,21 +31,37 @@ class App extends React.Component {
       return value;
     }
 
+    handleTimer = () => {
+
+      const { isOn, started } = this.state
+      const self = this
+
+      // criar um estado
+      //ao ser invocado, trocar estado isOn para true
+      this.setState({isOn: true})
+      setTimeout(function () {
+        self.setState({isOn: false})
+      }, 1000);
+
+
+    }
+
+    // relogio parado > isOn false vira true e depois false (props mudam)
+    // relogio true no timer não executa função se isOn && started
+    // quando o timer zerar, o started é false, o que permite outro ciclo
 
     render () {
+      const { isOn, minute, dados} = this.state
+
       return (
         <div className="App">
-        <Timer time={this.state.minute} />
+        <Timer isOn={isOn} minutes={minute} />
         <Task funcion={this.getTextValue}/>
-        <List func={this.handleTimer.bind(this)} dados={this.state.dados} />
+        <List func={this.handleTimer.bind(this)} dados={dados} />
         </div>
       );
     }
 
-
-    handleTimer = (a) => {
-      console.log(a);
-    }
   }
 
   export default App;

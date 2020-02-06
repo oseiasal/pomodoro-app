@@ -5,7 +5,8 @@ class Timer extends React.Component {
     super(props)
     this.state = {
       minutes: 10,
-      isOn: false
+      isOn: false,
+      started: false
     }
   }
 
@@ -15,9 +16,10 @@ class Timer extends React.Component {
     let timer = setInterval(() => {
       i--
       if(i < 0) {
-        this.setState({minutes: 10})
 
-        // TODO: Quando o app chegar a 0, tornar o isOn falso
+        // Quando o tempo chega a 0, o cronometro é liberado
+        this.setState({minutes: 10, started: false})
+
         clearInterval(timer)
       } else {
 
@@ -29,12 +31,20 @@ class Timer extends React.Component {
 
     }, 1000)
 
-
+    
   }
 
   componentWillReceiveProps(a){
-    if(a.isOn == true) {
-      this.handleMinutes.call()
+
+    const {started } = this.state
+
+
+    // State muda apenas quando  props true e state false
+    // Correção para o setInterval
+    if(a.isOn && !started) {
+
+      this.setState({started: true}, this.handleMinutes.call())
+
     }
   }
 

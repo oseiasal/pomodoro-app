@@ -22,8 +22,8 @@ class Item extends React.Component {
       <>
       <tr>
       <td>{this.props.task}</td>
+      <td><input type="button" onClick={this.props.func.bind(this)} value="Play"/></td>
       <td><input type="button" onClick={this.startTimer} value=""/></td>
-      <td><input type="button" onClick={this.props.func.bind(this)} value=""/></td>
       </tr>
       </>
     )
