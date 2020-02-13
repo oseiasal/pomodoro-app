@@ -17,7 +17,3 @@ function reducerItem(state = {}, action) {
      return state;
   }
 }
-
-
-
-// store.dispatch(addItem('Mina maluca'))
