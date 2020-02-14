@@ -1,6 +1,6 @@
 // import
 
-const initialState = {key:'ovo', status: '', task: '' }
+const initialState = [] 
 
 // criar reducer
 function reducerItem(state = initialState, action) {
