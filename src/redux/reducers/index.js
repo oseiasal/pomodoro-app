@@ -1,8 +1,15 @@
+// import
+
+const initialState = {key:'', status: '', task: '' }
+
 // criar reducer
-function reducerItem(state = {}, action) {
+function reducerItem(state = initialState, action) {
   switch (action.type) {
     case 'ADD':
-      return Object.assign({}, action);
+      return {
+        ...state,
+        task: action.task
+      }
 
 
     case 'REMOVE':
