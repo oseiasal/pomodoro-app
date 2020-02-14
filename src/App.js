@@ -4,6 +4,9 @@ import Timer from './Components/Timer';
 import Task from './Components/Task';
 import List from './Components/List';
 import Tasks from './Components/Classes/Class';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { addItem }  from './redux/actions'
 
 class App extends React.Component {
   constructor(props) {
@@ -62,6 +65,7 @@ class App extends React.Component {
 
       return (
         <div className="App">
+          <h1>{this.props.dados.key}</h1>
         <Timer isOn={isOn} minutes={minute} />
         <Task funcion={this.getTextValue}/>
         <List removeTaskByKey={this.removeTaskByKey} func={this.handleTimer.bind(this)} dados={dados} />
@@ -70,4 +74,13 @@ class App extends React.Component {
     }
   }
 
-  export default App;
+  const mapDispatchToProps = dispatch =>
+  bindActionCreators({ addItem }, dispatch);
+
+
+  const mapStateToProps = store => ({
+    dados: store
+  });
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(App);
+

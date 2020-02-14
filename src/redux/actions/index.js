@@ -2,9 +2,9 @@
 
 let key = 0;
 
-function addItem(task, status = 'Pendente') {
+export function addItem(task, status = 'Pendente') {
   return {
-    type: 'B',
+    type: 'ADD',
     task: task,
     status: status,
     key: key++
@@ -14,3 +14,5 @@ function addItem(task, status = 'Pendente') {
 export function removeItem () {
   // body...
 }
+
+

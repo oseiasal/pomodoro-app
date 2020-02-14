@@ -1,6 +1,6 @@
 // import
 
-const initialState = {key:'', status: '', task: '' }
+const initialState = {key:'ovo', status: '', task: '' }
 
 // criar reducer
 function reducerItem(state = initialState, action) {
@@ -8,7 +8,7 @@ function reducerItem(state = initialState, action) {
     case 'ADD':
       return {
         ...state,
-        task: action.task
+        task: action
       }
 
 
