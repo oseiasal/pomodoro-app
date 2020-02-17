@@ -71,10 +71,9 @@ class App extends React.Component {
 
       return (
         <div className="App">
-          <h1>{this.props.dados.key}</h1>
-        <Timer isOn={isOn} minutes={minute} />
+          <Timer isOn={isOn} minutes={minute} />
         <Task getTextValue={this.getTextValue}/>
-        <List removeTaskByKey={this.removeTaskByKey} func={this.handleTimer.bind(this)} dados={dados} />
+        <List removeTaskByKey={this.removeTaskByKey} func={this.handleTimer.bind(this)} dados={this.props.dados} />
         </div>
       );
     }
@@ -89,4 +88,3 @@ class App extends React.Component {
   });
   
   export default connect(mapStateToProps, mapDispatchToProps)(App);
-
