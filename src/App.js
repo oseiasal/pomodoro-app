@@ -8,6 +8,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addItem }  from './redux/actions'
 
+import { store } from './'
+ 
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -18,11 +20,15 @@ class App extends React.Component {
   }
 
   // Pega o valor (string) da input e cria um novo item na lista
+  // Pegar o objeto e jogar na store do redux, não no state do react
   getTextValue() {
-    let newTask = new Tasks()
-    newTask.setTask(this.returnTextValue('text'))
-    this.setState(prevState => ({
-      dados: [...prevState.dados, newTask]}));
+    // let newTask = new Tasks()
+    // newTask.setTask(this.returnTextValue('text'))
+    let a = this.returnTextValue('text')
+
+    store.dispatch(addItem(a))
+    // this.setState(prevState => ({
+    //   dados: [...prevState.dados, newTask]}));
     }
 
     // Pegar valor da input
@@ -67,7 +73,7 @@ class App extends React.Component {
         <div className="App">
           <h1>{this.props.dados.key}</h1>
         <Timer isOn={isOn} minutes={minute} />
-        <Task funcion={this.getTextValue}/>
+        <Task getTextValue={this.getTextValue}/>
         <List removeTaskByKey={this.removeTaskByKey} func={this.handleTimer.bind(this)} dados={dados} />
         </div>
       );

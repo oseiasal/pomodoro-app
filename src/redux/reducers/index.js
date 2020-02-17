@@ -6,10 +6,10 @@ const initialState = []
 function reducerItem(state = initialState, action) {
   switch (action.type) {
     case 'ADD':
-      return {
-        ...state,
-        task: action
-      }
+      return [...state,{
+        key: action.key,
+        task: action.task
+      }]
 
 
     case 'REMOVE':

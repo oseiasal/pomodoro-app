@@ -2,11 +2,10 @@
 
 let key = 0;
 
-export function addItem(task, status = 'Pendente') {
+export function addItem(task) {
   return {
     type: 'ADD',
     task: task,
-    status: status,
     key: key++
   }
 }

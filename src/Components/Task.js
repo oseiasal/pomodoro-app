@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { addItem } from '../redux/actions';
 
 function Task (props) {
   return (
@@ -6,7 +8,7 @@ function Task (props) {
     <div className="task-container">
       <div className="task-box">
         <input  placeholder="Digite o nome da tarefa" required id="text" type="text"/>
-        <input type="button" onClick={props.funcion} value="Enviar"/>
+          < input type="button" onClick={props.getTextValue} value="Enviar" />
       </div>
     </div>
   </div>
@@ -14,4 +16,7 @@ function Task (props) {
 }
 
 
-export default Task
+export default connect()(Task)
+// export default Task
+
+// #10 < input type = "button" onClick = { props.getTextValue } value = "Enviar" />
