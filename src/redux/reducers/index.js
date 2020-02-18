@@ -1,26 +1,8 @@
 // import
+import { reducerItem } from './reducerItem'
+import { reducerTimer } from './reducerTimer'
+import { combineReducers } from 'redux'
 
-const initialState = [] 
-
-// criar reducer
-function reducerItem(state = initialState, action) {
-  switch (action.type) {
-    case 'ADD':
-      return [...state,{
-        id: action.id,
-        task: action.task
-      }]
+export const rootReducers = combineReducers({reducerItem, reducerTimer});
 
 
-    case 'REMOVE':
-      return state.filter(todo =>
-        todo.id !== action.id
-      )
-
-    default:
-     return state;
-  }
-}
-
-
-export default reducerItem
