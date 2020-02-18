@@ -1,7 +1,7 @@
-import React from './node_modules/react';
+import React from 'react';
 import Item from './Item';
 
-class List extends React.Component {
+export class List extends React.Component {
   constructor(props) {
     super(props)
     // this.startTimer = this.startTimer.bind(this)
@@ -27,7 +27,6 @@ class List extends React.Component {
               {
                 this.props.dados.map(a => a).map((a) =>
                 
-                
                 <Item removeTaskByKey={this.props.removeTaskByKey} func={this.props.func} task={a.task} ID={a.id} key={a.id}/>
 
                 )
@@ -41,4 +40,3 @@ class List extends React.Component {
 }
 }
 
-export default List;
