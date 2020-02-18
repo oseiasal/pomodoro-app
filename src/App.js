@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import Timer from './Components/Timer';
-import Task from './Components/Task';
-import List from './Components/List';
+import Timer from './components/Timer';
+import Task from './components/Task';
+import { List } from './components/List'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addItem, removeItem }  from './redux/actions'
@@ -73,6 +73,7 @@ class App extends React.Component {
       );
     }
   }
+
 
   const mapDispatchToProps = dispatch =>
   bindActionCreators({ addItem }, dispatch);
