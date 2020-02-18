@@ -6,12 +6,13 @@ export function addItem(task) {
   return {
     type: 'ADD',
     task: task,
-    key: key++
+    id: key++
   }
 }
 
-export function removeItem () {
-  // body...
+export function removeItem (id) {
+  return {
+    type: 'REMOVE',
+    id
+  }
 }
-
-

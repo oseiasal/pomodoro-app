@@ -7,13 +7,16 @@ function reducerItem(state = initialState, action) {
   switch (action.type) {
     case 'ADD':
       return [...state,{
-        key: action.key,
+        id: action.id,
         task: action.task
       }]
 
 
     case 'REMOVE':
-      return console.log(state); // temporario
+      return state.filter(todo =>
+        todo.id !== action.id
+      )
+
     default:
      return state;
   }

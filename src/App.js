@@ -3,10 +3,9 @@ import './App.css';
 import Timer from './Components/Timer';
 import Task from './Components/Task';
 import List from './Components/List';
-import Tasks from './Components/Classes/Class';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { addItem }  from './redux/actions'
+import { addItem, removeItem }  from './redux/actions'
 
 import { store } from './'
  
@@ -22,13 +21,8 @@ class App extends React.Component {
   // Pega o valor (string) da input e cria um novo item na lista
   // Pegar o objeto e jogar na store do redux, não no state do react
   getTextValue() {
-    // let newTask = new Tasks()
-    // newTask.setTask(this.returnTextValue('text'))
     let a = this.returnTextValue('text')
-
     store.dispatch(addItem(a))
-    // this.setState(prevState => ({
-    //   dados: [...prevState.dados, newTask]}));
     }
 
     // Pegar valor da input
@@ -57,13 +51,14 @@ class App extends React.Component {
 
     // função para deletar objetos do array pelo key
     removeTaskByKey = (a) => {
-      console.log(a);
+      // console.log(a);
+      store.dispatch(removeItem(1))
 
-      let array = [...this.state.dados]
-      var index = array.findIndex(x => x.key == a)
+      // let array = [...this.state.dados]
+      // var index = array.findIndex(x => x.key == a)
 
-      array.splice(index, 1)
-      this.setState({dados: array})
+      // array.splice(index, 1)
+      // this.setState({dados: array})
     }
 
     render () {
