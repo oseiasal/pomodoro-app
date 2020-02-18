@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Timer from './components/Timer';
+import Timer from './containers/Timer';
 import Task from './components/Task';
 import { List } from './components/List'
 import { connect } from 'react-redux';
@@ -79,8 +79,10 @@ class App extends React.Component {
   bindActionCreators({ addItem }, dispatch);
 
 
-  const mapStateToProps = store => ({
-    dados: store
-  });
+const mapStateToProps = (store) => {
+  return {dados: store.reducerItem, timer: store.reducerTimer}
+  
+} 
+    
   
   export default connect(mapStateToProps, mapDispatchToProps)(App);
