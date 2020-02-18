@@ -1,7 +1,7 @@
-import React from 'react';
+import React from './node_modules/react';
 import Item from './Item';
 
-export class List extends React.Component {
+class List extends React.Component {
   constructor(props) {
     super(props)
     // this.startTimer = this.startTimer.bind(this)
@@ -41,3 +41,4 @@ export class List extends React.Component {
 }
 }
 
+export default List;
