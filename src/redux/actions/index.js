@@ -10,9 +10,16 @@ export function addItem(task) {
   }
 }
 
-export function removeItem (id) {
+export function removeItem(id) {
   return {
     type: 'REMOVE',
     id
+  }
+}
+
+export function startTimer(time) {
+  return {
+    type: 'START_TIMER',
+    time: 10
   }
 }
