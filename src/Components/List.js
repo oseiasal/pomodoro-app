@@ -1,5 +1,5 @@
 import React from 'react';
-import Item from './Item';
+import Item from '../containers/Item';
 
 export class List extends React.Component {
   constructor(props) {
@@ -27,7 +27,7 @@ export class List extends React.Component {
               {
                 this.props.dados.map(a => a).map((a) =>
                 
-                <Item removeTaskByKey={this.props.removeTaskByKey} func={this.props.func} task={a.task} ID={a.id} key={a.id}/>
+                <Item key={a.id} removeTaskByKey={this.props.removeTaskByKey} func={this.props.func} task={a.task} ID={a.id} />
 
                 )
               }
