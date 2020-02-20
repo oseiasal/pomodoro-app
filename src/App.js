@@ -4,7 +4,6 @@ import Timer from './containers/Timer';
 import Task from './components/Task';
 import { List } from './components/List'
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { addItem, removeItem }  from './redux/actions'
 
 import { store } from './'
@@ -37,8 +36,6 @@ class App extends React.Component {
     // relogio true no timer não executa função se isOn && started
     // quando o timer zerar, o started é false, o que permite outro ciclo
     handleTimer = () => {
-
-      const { isOn, started } = this.state
       const self = this
 
       // criar um estado
@@ -62,7 +59,7 @@ class App extends React.Component {
     }
 
     render () {
-      const { isOn, minute, dados} = this.state
+      const { isOn, minute} = this.state
 
       return (
         <div className="App">
@@ -74,15 +71,9 @@ class App extends React.Component {
     }
   }
 
-
-  // const mapDispatchToProps = dispatch =>
-  // bindActionCreators({ addItem }, dispatch);
-
-
 const mapStateToProps = (store) => {
   return {dados: store.reducerItem}
   
 } 
     
-  
-  export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(App);
