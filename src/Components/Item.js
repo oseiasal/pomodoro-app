@@ -28,5 +28,5 @@ class Item extends React.Component {
   }
 }
 
-export default connect()(Item)
-// export default Item
+// export default connect()(Item)
+export default Item
