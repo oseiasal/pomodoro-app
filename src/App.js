@@ -75,14 +75,14 @@ class App extends React.Component {
   }
 
 
-  const mapDispatchToProps = dispatch =>
-  bindActionCreators({ addItem }, dispatch);
+  // const mapDispatchToProps = dispatch =>
+  // bindActionCreators({ addItem }, dispatch);
 
 
 const mapStateToProps = (store) => {
-  return {dados: store.reducerItem, timer: store.reducerTimer}
+  return {dados: store.reducerItem}
   
 } 
     
   
-  export default connect(mapStateToProps, mapDispatchToProps)(App);
+  export default connect(mapStateToProps)(App);
