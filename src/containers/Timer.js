@@ -28,25 +28,18 @@ class Timer extends React.Component {
         this.setState(state => {
           return {minutes: state.minutes - 1}
         })
-
       }
-
     }, 1000)
-
-    
   }
 
   componentWillReceiveProps(a){
-
     const {started } = this.state
-
 
     // State muda apenas quando  props true e state false
     // Correção para o setInterval
     if(a.isOn && !started) {
 
       this.setState({started: true}, this.handleMinutes.call())
-
     }
   }
 
@@ -54,6 +47,9 @@ class Timer extends React.Component {
     return (
       <div className="timer-container">
       <div className="timer-numbers">
+        <button onClick={() => {
+            this.props.timer()
+        }}></button>
       <span>00:</span><span>{this.state.minutes}</span>
       </div>
       </div>
@@ -61,7 +57,17 @@ class Timer extends React.Component {
   }
 }
 
-const timer = connect()(startTimer)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    timer: () => { dispatch(startTimer(25))}
+  }
+}
 
 
-export default Timer;
+const mapStateToProps = (state) => {
+  return {
+    timerConfig: state.reducerTimer
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Timer)
