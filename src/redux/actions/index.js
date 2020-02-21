@@ -17,9 +17,21 @@ export function removeItem(id) {
   }
 }
 
-export function startTimer(time) {
+let minutes = 45;
+
+export function startTimer() {
   return {
     type: 'START_TIMER',
-    time: 10
+    minutes: minutes--,
+    isOn: true
+  }
+}
+
+export function resetTimer() {
+  minutes = 45;
+  return {
+    type: 'RESET_TIMER',
+    minutes: 10,
+    isOn: false
   }
 }
