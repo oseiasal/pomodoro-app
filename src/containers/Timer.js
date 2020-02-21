@@ -5,7 +5,7 @@ function Timer({ timerConfig }) {
   return (
     <div className="timer-container">
       <div className="timer-numbers">
-        <span>00</span><span>{timerConfig.minutes}</span>
+        <span>00:</span><span>{timerConfig.minutes}</span>
       </div>
     </div>
   )

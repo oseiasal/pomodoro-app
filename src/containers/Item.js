@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 const mapStateToProps = (state) => {
     return {
-        STORE: state
+        STORE: state.reducerTimer
     }
 }
 
@@ -16,4 +16,4 @@ const mapDispatchToProps = (dispatch, key) => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(Item)
+export default connect(mapStateToProps, mapDispatchToProps)(Item)

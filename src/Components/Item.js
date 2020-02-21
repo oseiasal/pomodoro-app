@@ -1,31 +1,39 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { store } from '../index'
 
-class Item extends React.Component {
-  /* função pega a key deste componente e executa a função do
-  componente Pai que deleta o item correspondente */
+function Item({STORE, task, start, remove, reset }) {
+  return (
+    <>
+      <tr>
+        <td>{task}</td>
+        <td><input disabled={STORE.isOn ? true : false} type="button" onClick={() => {
+            // ao clicar bloquear botão ok
+            //iniciar setinterval
+            let min = 50
+           let a = setInterval(() => {
+              start.call()
+              min--
+             if (min == 0) {
+               clearInterval(a)
+               reset.call()
+             }
+            }, 1000);
+            //no final clearinterval
 
-  removeTask = () => {
-    // const {key} = this._reactInternalFiber
-    // this.props.removeTaskByKey(key)
+            
+            //desbloqueia botao
+            
+            
+        }} value="Play" /></td>
+        <td><input type="button" onClick={() => {
 
-    this.props.remove()
+          remove.call()
 
-  }
-
-  render() {
-    return (
-      <>
-        <tr>
-          <td>{this.props.task}</td>
-          <td><input type="button" onClick={this.props.func.bind(this)} value="Play" /></td>
-          <td><input type="button" onClick={this.removeTask} value="Remover" /></td>
-        </tr>
-      </>
-    )
-  }
+        }} value="Remover" /></td>
+      </tr>
+    </>
+  )
 }
 
-// export default connect()(Item)
+// <td><input type="button" onClick={this.props.func.bind(this)} value="Play" /></td>
+
 export default Item
